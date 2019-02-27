@@ -11,6 +11,7 @@ ENV DATE_FORMAT +%Y%m%d%H%M
 
 RUN pip3 install --no-cache-dir awscli
 
-CMD [ "backup.sh" ]
+CMD [ "./backup.sh" ]
 
 COPY backup.sh .
+RUN chmod +x backup.sh
