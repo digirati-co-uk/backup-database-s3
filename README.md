@@ -29,6 +29,7 @@ Also needs access to local Docker socket, so launch with `/var/run/docker.sock` 
 
 ```
 docker run --rm --name backup-database-s3 \
+  -v /var/run/docker.sock:/var/run/docker.sock \
   --env ENGINE_FAMILY='postgres' \
   --env ENGINE_VERSION='9.6' \
   --env S3_PREFIX='s3://my-backup-bucket/databases/this-database/' \
