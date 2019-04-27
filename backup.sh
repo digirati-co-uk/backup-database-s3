@@ -34,7 +34,7 @@ then
   exit 1
 fi
 
-if [ -s $OUTPUT_FILE ];
+if [ ! -s $OUTPUT_FILE ];
 then
   announce "$DB_NAME backup: Output file was zero length!"
   exit 1
