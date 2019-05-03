@@ -5,13 +5,13 @@ function announce() {
   if [ $SLACK_WEBHOOK_URL != "" ];
   then
     ANNOUNCETEXT='{"text": "'$*'", "link_names": 1}'
-    curl -X POST -d ''"${ANNOUNCETEXT}"'' $SLACK_WEBHOOK_URL
+    curl -X POST -d ''"${ANNOUNCETEXT}"'' $SLACK_WEBHOOK_URL 2> /dev/null
   fi
 }
 
 OUTPUT_FOLDER="/tmp"
 FORMATTED_FILENAME=`date $DATE_FORMAT`.sql
-OUTPUT_FILE=$OUTPUT_FOLDER/$FORMATTED_FILENAME
+OUTPUT_FILE=$OUTPUT_FOLDER/$DB_NAME-$FORMATTED_FILENAME
 OUTPUT_FILE_GZ=$OUTPUT_FILE.gz
 
 echo "Output filename will be $OUTPUT_FILE"
