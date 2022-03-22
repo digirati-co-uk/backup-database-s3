@@ -16,6 +16,7 @@ This container is intended to be run as a scheduled job to perform an automated 
 | DB_PASSWORD       | Database password                                   |             |
 | DATE_FORMAT       | `date` format for backup files                      | +%Y%m%d%H%M |
 | SLACK_WEBHOOK_URL | Slack webhook URL that backups will be announced to |             |
+| ANNOUNCE_SUCCESS  | Whether to announce a successful backup             | True        |
 
 # Requirements and permission
 
@@ -55,3 +56,5 @@ Backup names will be directly appended to this, for example:
 ## SLACK_WEBHOOK_URL
 
 Leave empty to skip Slack announcements.
+
+To only receive error announcements set `--env ANNOUNCE_SUCCESS=False`.

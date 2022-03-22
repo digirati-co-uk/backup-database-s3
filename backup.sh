@@ -47,5 +47,9 @@ aws s3 cp $OUTPUT_FILE_GZ $S3_PREFIX$FORMATTED_FILENAME.gz
 echo "Removing temporary file"
 rm -f $OUTPUT_FILE_GZ
 echo "Done"
-announce "$DB_NAME backup: Written to $S3_PREFIX$FORMATTED_FILENAME.gz"
+
+if [ $ANNOUNCE_SUCCESS = "True" ]
+then
+  announce "$DB_NAME backup: Written to $S3_PREFIX$FORMATTED_FILENAME.gz"
+fi
 exit 0
