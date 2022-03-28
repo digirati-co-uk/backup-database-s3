@@ -14,6 +14,12 @@ FORMATTED_FILENAME=`date $DATE_FORMAT`.sql
 OUTPUT_FILE=$OUTPUT_FOLDER/$DB_NAME-$FORMATTED_FILENAME
 OUTPUT_FILE_GZ=$OUTPUT_FILE.gz
 
+if [ ! -d $OUTPUT_FOLDER ] 
+then
+  echo "Creating directory $OUTPUT_FOLDER as it doesn't exist"
+  mkdir -p $OUTPUT_FOLDER
+fi
+
 echo "Output filename will be $OUTPUT_FILE"
 
 if [ $ENGINE_FAMILY == 'postgres' ]; then
